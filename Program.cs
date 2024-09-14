@@ -1,9 +1,8 @@
+using Todo.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+builder.Services.AddDbContext<DataContext>();
 var app = builder.Build();
-
-app.MapGet("/", () =>
-{
-    return "Olá";
-});
-
+app.MapControllers();
 app.Run();
